@@ -5,7 +5,6 @@ class Post < ApplicationRecord
   after_save :update_posts_counter_per_user
 
   validates :title, presence: true, length: { maximum: 250 }
-  validates :text, presence: true, length: { maximum: 500 }
   validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 

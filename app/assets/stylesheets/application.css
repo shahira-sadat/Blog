@@ -14,7 +14,6 @@
  *= require_self
  */
 
-
 * {
   padding: 0;
   margin: 0;
@@ -41,12 +40,12 @@
 }
 
 .page-header {
-    margin-left: 1em;
-    margin-top: 10px;
-    color: rgb(16, 2, 77);
+  margin-left: 1em;
+  margin-top: 10px;
+  color: rgb(16, 2, 77);
 }
 
-.p-child{
-    margin-left: 2em;
-    color: rgb(16, 2, 77);
+.p-child {
+  margin-left: 2em;
+  color: rgb(16, 2, 77);
 }

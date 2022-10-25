@@ -1,7 +1,7 @@
 class AuthorsController < ApplicationController
   def index; end
 
-  def show 
+  def show
     params[:author_id]
   end
 end

@@ -1,5 +1,5 @@
 <div class="container">
-<p>User posts</p>	    <div class="specific-user">
+    <div class="specific-user">
         <div class="image">
             <img  src=<%= @author.photo%> > 
         </div>
@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <% @author.posts.each do |post|%>
+    <%@author.posts.each do |post|%>
     <%= link_to author_post_path(@author, post) do %>
         <div class="posts-container">
             <div class="post-title"><%= post.title%></div>

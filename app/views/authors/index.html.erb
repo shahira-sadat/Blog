@@ -1,30 +1,14 @@
-<h1 class="page-header">Authors Show</h1>
+<h1 class = "title">Authors</h1>
 <div class="container">
+    <%@authors.each do |author|  %>
+    <%= link_to author_path(author) do %>
     <div class="specific-user">
-        <div class="image">
-            <img  src=<%= @author.photo%> > 
-        </div>
-        <div class="specific-user-content">
-            <h2><%= @author.name %></h2>
-            <span> Post Counter: <%= @author.posts_counter %></span>
-        </div>
+        <div class="image"> <img  src=<%= author.photo%> > </div>
+    <div class="specific-user-content">
+        <h2 class="author-name"><%= author.name %></h2>
+       <span class="post-counter"> Post Counter: <%= author.posts_counter %></span>
     </div>
-
-    <div>
-        <%= @author.bio%>
     </div>
-
-    <% @author.three_recent_posts_per_user.each do |post|%>
-        <div class="posts-container">
-            <div class="post-title"><%= post.title%></div>
-             <p><%= post.text%></p>
-             <span>Comments:<%=post.comments_counter%></span>
-             <span>Likes: <%= post.likes_counter%> </span>
-
-        </div>
-    <% end%>
-    <%= link_to author_posts_path(@author) do %>
-         <button class="posts-btn">See all Posts </button>
     <% end %>
-
+    <% end %>
 </div>

@@ -1,14 +1,14 @@
 
-form{
-    display: flex;
-    flex-direction: column;
-}   
-
-.filed {
-    padding: 1rem;
-    color:  rgba(16, 2, 77, 0.832);
+form {
+  display: flex;
+  flex-direction: column;
 }
 
-.submit{
-     padding: 1rem;
+.filed {
+  padding: 1rem;
+  color: rgba(16, 2, 77, 0.832);
+}
+
+.submit {
+  padding: 1rem;
 }

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
- def index
+  def index
     @author = Author.find(params[:author_id])
   end
 

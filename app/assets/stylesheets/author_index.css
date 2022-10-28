@@ -2,7 +2,7 @@
   display: flex;
   gap: 30px;
   flex-direction: column;
-  padding: 40px;
+  padding: 3rem;
 }
 
 .specific-user {
@@ -10,8 +10,8 @@
   gap: 30px;
   width: 100%;
   align-items: center;
-  justify-content: space-between;
-  border: 5px solid black;
+  justify-content: center;
+  color: #121212;
 }
 
 .specific-user-content {
@@ -23,13 +23,14 @@
 }
 
 .image {
-  border: 1px solid black;
+  width: 20px;
 }
 
 .author-name {
-  font-size: 3rem;
+  font-size: 1.5rem;
+  text-decoration: none;
 }
 
 .post-counter {
-  font-size: 1.6rem;
+  font-size: 1rem;
 }

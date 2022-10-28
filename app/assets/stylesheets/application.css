@@ -20,6 +20,10 @@
   box-sizing: border-box;
 }
 
+a{
+  text-decoration: none;
+}
+
 .header-container {
   background-color: rgba(16, 2, 77, 0.752);
   color: white;
@@ -39,13 +43,8 @@
   color: white;
 }
 
-.page-header {
+.title{
   margin-left: 1em;
   margin-top: 10px;
-  color: rgb(16, 2, 77);
-}
-
-.p-child {
-  margin-left: 2em;
   color: rgb(16, 2, 77);
 }

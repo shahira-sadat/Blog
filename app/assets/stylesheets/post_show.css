@@ -1,0 +1,19 @@
+.show-post-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 2rem;
+}
+
+.posts-container {
+  border: 1px solid rgba(16, 2, 77, 0.832);
+  padding: 1rem;
+}
+
+.post-comment {
+  border: 0;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

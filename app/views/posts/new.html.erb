@@ -1,0 +1,16 @@
+<%= form_with model: Post.new, url:author_posts_path do |form| %>
+<div class="filed">
+  <%= form.label :title %><br>
+  <%= form.text_field :title %>
+</div>
+
+  <div class="filed">
+    <%= form.label :text %><br>
+    <%= form.text_field :text %>
+  </div>
+
+  <div class="submit">
+    <%= form.submit "Create" %>
+  </div>
+
+<% end %>

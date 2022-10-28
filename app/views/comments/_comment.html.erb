@@ -1,0 +1,6 @@
+ <%= form_with model: Comment, url: author_post_comments_path(@author, @post), class: "comment-form" do |form| %>
+        <div class="add-comment">
+            <%= form.text_field :text, placeholder: "Add a new comment" %>
+            <%= form.submit "Add" %>
+         </div>
+    <% end %> 

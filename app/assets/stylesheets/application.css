@@ -20,7 +20,7 @@
   box-sizing: border-box;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -43,7 +43,7 @@ a{
   color: white;
 }
 
-.title{
+.title {
   margin-left: 1em;
   margin-top: 10px;
   color: rgb(16, 2, 77);

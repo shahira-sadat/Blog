@@ -1,21 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  subject do
-    Like.new(author_id: 1, post_id: 1)
-  end
+  describe 'like model' do
+    subject do
+      Like.new(author_id: 1, post_id: 1)
 
-  before { subject.save }
+      before { subject.save }
 
-  context 'author_id' do
-    it 'should be 1' do
-      expect(subject.author_id).to eql(1)
-    end
-  end
-
-  context 'post_id' do
-    it 'should be 1' do
-      expect(subject.post_id).to eql(1)
+      it 'check if it increases the likes' do
+        prev = Post.find(1).likes_counter
+        subject.update_likes_counter
+        expect(Post.find(1).likes_counter).to eq(prev + 1)
+      end
     end
   end
 end

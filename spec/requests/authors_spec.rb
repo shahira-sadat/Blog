@@ -2,23 +2,16 @@ require 'rails_helper'
 
 RSpec.describe 'Authors', type: :request do
   describe 'GET /show' do
-    before(:each) do
-      get '/authors/show'
-    end
-    it 'returns http success' do
-      expect(response).to have_http_status(:success)
-    end
-    it 'renders correct template text' do
-      expect(response.body).to include('Here is list of Authors')
+    it 'should returns http 200 success' do
+      get authors_path
+      expect(response).to have_http_status(200)
     end
   end
 
   describe 'GET /index' do
-    before(:each) do
-      get '/authors/index'
-    end
-    it 'returns http success' do
-      expect(response).to have_http_status(:success)
+    it 'should returns http 200 success' do
+      get authors_path
+      expect(response).to have_http_status(200)
     end
   end
 
@@ -35,3 +28,8 @@ RSpec.describe 'Authors', type: :request do
     end
   end
 end
+
+
+
+
+

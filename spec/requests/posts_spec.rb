@@ -6,7 +6,6 @@ RSpec.describe 'Posts', type: :request do
       @author1 = Author.create!(name: 'Navid',
                                 photo: 'https://mobile.twitter.com/sm_sayedi/photo',
                                 bio: 'Teacher from Kabul.')
-      post1 = Post.create!(author: @author1, title: 'Post 1', text: 'text Post 1')
     end
     before(:each) do
       get author_posts_path(@author1)
@@ -23,7 +22,7 @@ RSpec.describe 'Posts', type: :request do
 
   describe 'GET /show' do
     before(:each) do
-        get author_posts_path(@author1)
+      get author_posts_path(@author1)
     end
   end
 end

@@ -1,5 +1,5 @@
 class AuthorsController < ApplicationController
-before_action :authenticate_author!
+  before_action :authenticate_author!
 
   def index
     @authors = Author.all

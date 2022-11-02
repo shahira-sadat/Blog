@@ -4,7 +4,7 @@ class CreateAuthors < ActiveRecord::Migration[7.0]
       t.string :name
       t.text :photo
       t.text :bio
-      t.integer :posts_counter
+      t.integer :posts_counter, default: 0, null: false
 
       t.timestamps
     end

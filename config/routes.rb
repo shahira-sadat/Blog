@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :authors
 root 'authors#index'
+get 'authors/index'
   resources :authors, only: [:index, :show] do
     resources :posts, only: [:index, :new, :create, :show] do
       resources :comments, only: [:new, :create] 

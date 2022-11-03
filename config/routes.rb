@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   devise_for :authors
 root 'authors#index'
-get 'authors/index'
-  resources :authors, only: [:index, :show] do
-    resources :posts, only: [:index, :new, :create, :show] do
-      resources :comments, only: [:new, :create] 
-        resources :likes, only: [ :create] 
-    end
+  resources :authors, only: %i[index show] do
+    resources :posts, only: %i[index show]
+  end
+
+  resources :posts, only: %i[new create update destroy] do
+    resources :comments
+    resources :likes
   end
   # get 'posts/index'
   # get 'posts/show'

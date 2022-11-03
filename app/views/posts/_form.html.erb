@@ -1,0 +1,14 @@
+<%= form_with model: [ @author, @author.posts.build ], class: "post-form" do |form| %>
+  <h3>New Post</h3>
+  <%= form.label :title %>
+  <%= form.text_field :title, placeholder: "Title", class: "post-input" %>
+  <%= form.label :text %>
+  <%= form.text_field :text, placeholder: "Text goes here", class: "post-input" %>
+  <%= form.submit "Post", class: 'btn' %>
+
+  <%# if @post.errors.any? %>
+    <%# @post.errors.full_messages.each do |message| %>
+      <%# <p>= message</p> %>
+    <%# end %>
+  <%# end %>
+<% end %>

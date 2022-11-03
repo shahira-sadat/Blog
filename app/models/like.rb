@@ -1,7 +1,10 @@
 class Like < ApplicationRecord
+  after_save :update_likes_counter
+
   belongs_to :author
   belongs_to :post
-  after_save :update_likes_counter
+
+  validates :author_id, uniqueness: { scope: :post_id }
 
   private
 

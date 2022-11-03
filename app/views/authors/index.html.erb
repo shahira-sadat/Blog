@@ -1,14 +1,15 @@
-<h1 class = "title">Authors</h1>
-<div class="container">
-    <%@authors.each do |author|  %>
-    <%= link_to author_path(author) do %>
-    <div class="specific-user">
-        <div class="image"> <img  src=<%= author.photo%> > </div>
-    <div class="specific-user-content">
-        <h2 class="author-name"><%= author.name %></h2>
-       <span class="post-counter"> Post Counter: <%= author.posts_counter %></span>
-    </div>
-    </div>
-    <% end %>
-    <% end %>
+<div class="author-list">
+  <% @authors.includes([:posts]).each do |author| %>
+    
+      <div class="author-card">    
+        <img src="https://picsum.photos/200" />
+        <div class = "author-details">
+        <%= link_to author_path(author), class: 'author-link' do %>
+          <h2><%= author.name %></h2>
+          <% end %>
+          <p>Number of posts: <%= author.posts.length %></p>
+        </div>
+      </div>
+    
+  <% end %>
 </div>

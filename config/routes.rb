@@ -1,19 +1,12 @@
 Rails.application.routes.draw do
   devise_for :authors
-root 'authors#index'
-get 'authors/index'
-  resources :authors, only: [:index, :show] do
-    resources :posts, only: [:index, :new, :create, :show] do
-      resources :comments, only: [:new, :create] 
-        resources :likes, only: [ :create] 
-    end
-  end
-  # get 'posts/index'
-  # get 'posts/show'
-  # get 'authors/index'
-  # get 'authors/show'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  root "authors#index"
+  resources :authors do
+    resources :posts do
+      resources :comments
+      resources :likes, only: [:create, :destroy]
+    end
+  end
 end

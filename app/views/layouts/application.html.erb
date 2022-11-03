@@ -7,13 +7,21 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-  <%= render 'authors/header'%>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+ <body>
+    <nav>
+      <ul>
+        <%= link_to root_path do %>
+        <li>HOME</li>
+        <% end %>
+        <%= button_to "Logout", destroy_author_session_path, method: :delete  %>
+      </ul>
+    </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
+    <footer>BlogApp</footer>
   </body>
 </html>

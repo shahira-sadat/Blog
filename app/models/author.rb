@@ -15,4 +15,9 @@ class Author < ApplicationRecord
   def three_recent_posts_per_user
     posts.last(3)
   end
+
+  def admin?
+    :role == 'admin'
+  end
+
 end

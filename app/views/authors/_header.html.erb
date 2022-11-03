@@ -1,9 +1,9 @@
 <header class="header-container">
-      <div>
-        Logo
-      </div>
-    <ul>
-          <li><%= link_to 'Home', root_path%></li>  
-          <%= button_to "Logout", destroy_author_session_path, method: :delete  %> 
-    </ul>  
+           <ul class="nav navbar-nav navbar-right">
+      <% if author_signed_in? %>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "New post", new_post_path(current_author.id) %></li>
+          <li><%= link_to "All posts", author_posts_path(current_author) %></li>
+          <li><%= link_to "Sign out", destroy_author_session_path, method: :delete, class: "logout"%></li>
+        <%end%>
 </header>

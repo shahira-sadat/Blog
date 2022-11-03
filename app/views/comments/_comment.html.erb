@@ -1,6 +1,12 @@
- <%= form_with model: Comment, url: author_post_comments_path(@author, @post), class: "comment-form" do |form| %>
-        <div class="add-comment">
-            <%= form.text_field :text, placeholder: "Add a new comment" %>
-            <%= form.submit "Add" %>
-         </div>
-    <% end %> 
+<div class="comment">
+  <img src="https://picsum.photos/200" />
+  <div class="author-comment">
+    <h4><%= comment.author.name %></h4>
+    <p><%= comment.text %></p>
+  </div>
+  <% if can? :destroy, comment %>
+    <%= form_with model: comment, url: author_post_comment_path(comment.author, comment.post, comment), method: :delete do |form| %>
+      <%= form.submit "Delete", class: "btn" %>
+    <% end %>
+  <% end %>
+</div>

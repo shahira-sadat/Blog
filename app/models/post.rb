@@ -1,20 +1,21 @@
 class Post < ApplicationRecord
+  after_save :update_posts_counter
+
   belongs_to :author
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  # after_save :update_posts_counter_per_user
 
   validates :title, presence: true, length: { maximum: 250 }
-  validates :text, presence: true, length: { maximum: 500 }
-  validates :comments_counter, :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :comments_counter, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }
+  validates :likes_counter, comparison: { greater_than_or_equal_to: 0 }, numericality: { only_integer: true }
 
-  def five_most_recent_comments_per_post
-    comments.last(5)
+  def five_recent_comments
+    comments.includes([:author]).order('created_at DESC').first(5)
   end
 
-  # private
+  private
 
-  def update_posts_counter_per_user
+  def update_posts_counter
     author.update(posts_counter: author.posts.count)
   end
 end

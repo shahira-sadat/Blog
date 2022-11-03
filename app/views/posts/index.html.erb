@@ -1,31 +1,48 @@
-<div class="container">
-    <div class="specific-user">
-        <div class="image">
-            <img  src=<%= @author.photo%> > 
-        </div>
-        <div class="specific-user-content">
-            <h2><%= @author.name %></h2>
-            <span> Post Counter: <%= @author.posts_counter %></span>
-        </div>
-    </div>
+<div class="author-show">
 
-    <%@author.posts.each do |post|%>
-    <%= link_to author_post_path(@author, post) do %>
-        <div class="posts-container">
-            <div class="post-title"><%= post.title%></div>
-             <p><%= post.text%></p>
-             <span>Comments:<%=post.comments_counter%></span>
-             <span>Likes: <%= post.likes_counter%> </span>
+  <div class="author-data">
+    <img src='https://picsum.photos/200' />
+    <div class="portrait"></div>
+    <div class="name-post">
+      <h2><%= @author.name %></h2>
+      <p>Posts: <%= @author.posts.length %></p>
+    </div>
+    <div class="author-bio">
+      <h4>Bio</h4>
+      <p> <%= @author.bio %> </p>
+    </div>
+  </div>
+
+  <div class="author-posts">
+    <%= render "posts/form" %>
+    <%= notice %>
+    <% @author.posts.includes([:likes, :comments]).order("created_at DESC").each do |post| %>
+      <%= link_to author_post_path(@author, post) do %>
+        <div class="post-card">
+          <h3><%= post.title %></h3>
+          <p><%= post.text %></p>
+          <div class="likes-comments">
+            <p><%= post.likes.length %> Likes</p>
+            <p><%= post.comments.length %> Comments</p>
+          </div>
+          <% post.five_recent_comments.each do |comment| %>
+            <%= render comment %>
+          <% end %>
         </div>
-        <div class="post-comment"> 
-        <h3 class="comment-title">Comments:</h3>
-        <%post.five_most_recent_comments_per_post.each do |comment|%>
-            <div> 
-                <span> <%= comment.author.name%> </span>: <span><%= comment.text%></span>
-            </div>
-        <%end%>
-        </div>
-       <% end%>  
-    <% end%>    
-         <button class="pagination-btn">Pagination </button>
+      <% end %>
+      <% if can? :destroy, post %>
+      <%= form_with model: post, url: author_post_path(@author, post), method: :delete do |form| %>
+        <%= form.submit "Delete", class: "btn" %>
+      <% end %>
+      <% end %>
+      <%= form_with model: @like, url: author_post_likes_path(@author, post), method: :post do |form| %>
+        <%= form.submit "Like", class: "btn" %>
+      <% end %>
+
+    <% end %>
+    
+  </div>
+
+  
+
 </div>

@@ -1,14 +1,8 @@
-
-form {
-  display: flex;
-  flex-direction: column;
+.field_with_errors {
+  color: red;
+  display: inline;
 }
 
-.filed {
-  padding: 1rem;
-  color: rgba(16, 2, 77, 0.832);
-}
-
-.submit {
-  padding: 1rem;
+.field_with_errors input {
+  border: 1px solid red;
 }

@@ -46,6 +46,8 @@ gem 'bootsnap', require: false
 gem 'cancancan'
 gem 'devise'
 gem 'letter_opener'
+gem "bcrypt", "~> 3.1.7"
+gem "jwt"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
